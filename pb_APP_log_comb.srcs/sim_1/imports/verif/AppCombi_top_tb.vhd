@@ -1,11 +1,11 @@
 ---------------------------------------------------------------------------------------------
 -- labo_adder4b_sol_tb.vhd
 ---------------------------------------------------------------------------------------------
--- Université de Sherbrooke - Département de GEGI
+-- Universitï¿½ de Sherbrooke - Dï¿½partement de GEGI
 -- Version         : 3.0
 -- Nomenclature    : GRAMS
--- Date Révision   : 21 Avril 2020
--- Auteur(s)       : Réjean Fontaine, Daniel Dalle, Marc-André Tétrault
+-- Date Rï¿½vision   : 21 Avril 2020
+-- Auteur(s)       : Rï¿½jean Fontaine, Daniel Dalle, Marc-Andrï¿½ Tï¿½trault
 -- Technologies    : FPGA Zynq (carte ZYBO Z7-10 ZYBO Z7-20)
 --                   peripheriques: carte Thermo12, Pmod8LD PmodSSD
 --
@@ -13,14 +13,14 @@
 ---------------------------------------------------------------------------------------------
 -- Description:
 -- Banc d'essai pour circuit combinatoire Laboratoire logique combinatoire
--- Version avec entrées toutes combinatoires CIRCUIT COMPLET (TOP)
+-- Version avec entrï¿½es toutes combinatoires CIRCUIT COMPLET (TOP)
 -- 
--- Revision v1 12 novembre 2018, 3 décembre 2018 D. Dalle 
+-- Revision v1 12 novembre 2018, 3 dï¿½cembre 2018 D. Dalle 
 -- Revision 30 Avril 2021, M-A Tetrault
 --
 ---------------------------------------------------------------------------------------------
 -- Notes :
--- L'entrée retenue (i_cin) est générée par l'interrupteur S1 de la carte Thermobin
+-- L'entrï¿½e retenue (i_cin) est gï¿½nï¿½rï¿½e par l'interrupteur S1 de la carte Thermobin
 --
 ---------------------------------------------------------------------------------------------
 
@@ -33,7 +33,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
--- requis pour enoncés de type mem_valeurs_tests(to_integer( unsigned(table_valeurs_adr(9 downto 6) )));
+-- requis pour enoncï¿½s de type mem_valeurs_tests(to_integer( unsigned(table_valeurs_adr(9 downto 6) )));
 USE ieee.numeric_std.ALL;          -- 
 use IEEE.STD_LOGIC_UNSIGNED.ALL;   --
 
@@ -81,10 +81,14 @@ end COMPONENT;
  type table_valeurs_tests is array (integer range 0 to 63) of std_logic_vector(13 downto 0);
     constant mem_valeurs_tests : table_valeurs_tests := 
     ( 
-  --  vecteur de test è modifier selon les besoins
+  --  vecteur de test ï¿½ modifier selon les besoins
   --  res      op_a     op_b    cin
     "00000" & "0000" & "0000" & '0',  --   0 +  0  
-    "00000" & "0000" & "0001" & '0',  --   0 +  1 
+    "00001" & "0000" & "0001" & '0',  --   0 +  1
+    "10000" & "1111" & "0001" & '0',  --   0 +  0  
+    "00011" & "0010" & "0001" & '0',  --   0 +  1
+    "00100" & "0010" & "0010" & '0',  --   0 +  0  
+    "01001" & "0011" & "0101" & '0',  --   0 +  1 
     -- modifez et/ou ajoutez vos valeurs
   
     -- conserver la ligne ci-bas.
@@ -141,7 +145,7 @@ uut: AppCombi_top
               cin_sim <= vecteur_test_sim (0);
 			  resultat_attendu <= vecteur_test_sim(13 downto 9);
               wait for delai_sim;
-			  --assert (resultat_attendu /= (probe_adder_result) ) report "Resultat pas celui prévu." severity warning; 
+			  --assert (resultat_attendu /= (probe_adder_result) ) report "Resultat pas celui prï¿½vu." severity warning; 
               table_valeurs_adr := table_valeurs_adr + 1;
 			  if(table_valeurs_adr = 63) then
 				exit;

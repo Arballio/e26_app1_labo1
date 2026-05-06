@@ -1,0 +1,13 @@
+0.7
+2020.2
+May 22 2024
+19:03:11
+C:/Users/artbe/Documents/UNI/E26/e26_app1_prob/pb_APP_log_comb.srcs/sim_1/imports/verif/AppCombi_top_tb.vhd,1778093717,vhdl2008,,,,appcombi_top_tb,,,,,,,,
+C:/Users/artbe/Documents/UNI/E26/e26_app1_prob/pb_APP_log_comb.srcs/sources_1/imports/src/AppCombi_top.vhd,1778092225,vhdl2008,,,,appcombi_top,,,,,,,,
+C:/Users/artbe/Documents/UNI/E26/e26_app1_prob/pb_APP_log_comb.srcs/sources_1/imports/src/septSegments_Top.vhd,1778085825,vhdl2008,,,,septsegments_top,,,,,,,,
+C:/Users/artbe/Documents/UNI/E26/e26_app1_prob/pb_APP_log_comb.srcs/sources_1/imports/src/septSegments_encodeur.vhd,1778085825,vhdl2008,,,,septsegments_encodeur,,,,,,,,
+C:/Users/artbe/Documents/UNI/E26/e26_app1_prob/pb_APP_log_comb.srcs/sources_1/imports/src/septSegments_refreshPmod.vhd,1778085825,vhdl2008,,,,septsegments_refreshpmod,,,,,,,,
+C:/Users/artbe/Documents/UNI/E26/e26_app1_prob/pb_APP_log_comb.srcs/sources_1/imports/src/synchro_module_v2.vhd,1778085825,vhdl2008,,,,synchro_module_v2,,,,,,,,
+C:/Users/artbe/Documents/UNI/E26/e26_app1_prob/pb_APP_log_comb.srcs/sources_1/new/Add1bitA.vhd,1778091625,vhdl,,,,add1bita,,,,,,,,
+C:/Users/artbe/Documents/UNI/E26/e26_app1_prob/pb_APP_log_comb.srcs/sources_1/new/Add1bitB.vhd,1778092901,vhdl,,,,add1bitb,,,,,,,,
+C:/Users/artbe/Documents/UNI/E26/e26_app1_prob/pb_APP_log_comb.srcs/sources_1/new/Add4bits.vhd,1778092914,vhdl,,,,add4bits,,,,,,,,

@@ -1,21 +1,21 @@
 ---------------------------------------------------------------------------------------------
--- Université de Sherbrooke - Département de GEGI
+-- Universitï¿½ de Sherbrooke - Dï¿½partement de GEGI
 -- Version         : 3.0
 -- Nomenclature    : GRAMS
 -- Date            : 21 Avril 2020
--- Auteur(s)       : Réjean Fontaine, Daniel Dalle, Marc-André Tétrault
+-- Auteur(s)       : Rï¿½jean Fontaine, Daniel Dalle, Marc-Andrï¿½ Tï¿½trault
 -- Technologies    : FPGA Zynq (carte ZYBO Z7-10 ZYBO Z7-20)
 --                   peripheriques: Pmod8LD PmodSSD
 --
 -- Outils          : vivado 2019.1 64 bits
 ---------------------------------------------------------------------------------------------
 -- Description:
--- Circuit utilitaire pour le laboratoire et la problématique de logique combinatoire
+-- Circuit utilitaire pour le laboratoire et la problï¿½matique de logique combinatoire
 --
 ---------------------------------------------------------------------------------------------
--- À faire :
+-- ï¿½ faire :
 -- Voir le guide de l'APP
---    Insérer les modules additionneurs ("components" et "instances")
+--    Insï¿½rer les modules additionneurs ("components" et "instances")
 --
 ---------------------------------------------------------------------------------------------
 
@@ -58,7 +58,7 @@ architecture BEHAVIORAL of AppCombi_top is
  component synchro_module_v2 is
    generic (const_CLK_syst_MHz: integer := freq_sys_MHz);
       Port ( 
-           clkm        : in  STD_LOGIC;  -- Entrée  horloge maitre
+           clkm        : in  STD_LOGIC;  -- Entrï¿½e  horloge maitre
            o_CLK_5MHz  : out STD_LOGIC;  -- horloge divise utilise pour le circuit             
            o_S_1Hz     : out  STD_LOGIC  -- Signal temoin 1 Hz
             );
@@ -72,6 +72,14 @@ architecture BEHAVIORAL of AppCombi_top is
              o_AFFSSD     : out  STD_LOGIC_VECTOR (7 downto 0)  
            );
    end component;
+   
+   component Add4bits is
+    Port ( X : in STD_LOGIC_VECTOR (3 downto 0);
+           Y : in STD_LOGIC_VECTOR (3 downto 0);
+           Cin : in STD_LOGIC;
+           S : out STD_LOGIC_VECTOR (3 downto 0);
+           Cout : out STD_LOGIC);
+end component;
    
 
 begin
@@ -93,17 +101,19 @@ begin
            o_AFFSSD_Sim   => open,   -- ne pas modifier le "open". Ligne pour simulations seulement.
            o_AFFSSD       => o_SSD   -- sorties directement adaptees au connecteur PmodSSD
        );
-                   
+             
+    adder: add4bits
+        port map (d_opa, d_opb, d_cin, d_sum, d_cout);           
                      
    d_opa               <=  i_sw;                        -- operande A sur interrupteurs
    d_opb               <=  i_btn;                       -- operande B sur boutons
-   d_cin               <=  '0';                     -- la retenue d'entrée alterne 0 1 a 1 Hz
+   d_cin               <=  '0';                     -- la retenue d'entrï¿½e alterne 0 1 a 1 Hz
       
-   d_AFF0              <=  d_sum(3 downto 0);           -- Le resultat de votre additionneur affiché sur PmodSSD(0)
-   d_AFF1              <=  '0' & '0' & '0' & d_Cout;    -- La retenue de sortie affichée sur PmodSSD(1) (0 ou 1)
-   o_led6_r            <=  d_Cout;                      -- La led couleur représente aussi la retenue en sortie  Cout
-   o_pmodled           <=  d_opa & d_opb;               -- Les opérandes d'entrés reproduits combinés sur Pmod8LD
-   o_led (3 downto 0)  <=  '0' & '0' & '0' & d_S_1Hz;   -- La LED0 sur la carte représente la retenue d'entrée        
+   d_AFF0              <=  d_sum(3 downto 0);           -- Le resultat de votre additionneur affichï¿½ sur PmodSSD(0)
+   d_AFF1              <=  '0' & '0' & '0' & d_Cout;    -- La retenue de sortie affichï¿½e sur PmodSSD(1) (0 ou 1)
+   o_led6_r            <=  d_Cout;                      -- La led couleur reprï¿½sente aussi la retenue en sortie  Cout
+   o_pmodled           <=  d_opa & d_opb;               -- Les opï¿½randes d'entrï¿½s reproduits combinï¿½s sur Pmod8LD
+   o_led (3 downto 0)  <=  '0' & '0' & '0' & d_S_1Hz;   -- La LED0 sur la carte reprï¿½sente la retenue d'entrï¿½e        
    
    
 end BEHAVIORAL;
